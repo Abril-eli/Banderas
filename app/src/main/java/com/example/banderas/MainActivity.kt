@@ -44,18 +44,19 @@ fun BanderaScreen() {
             modifier = Modifier.padding(innerPadding).fillMaxSize()
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Black)
+                modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFFAA151B))
+            ) {
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth().weight(2f).background(Color(0xFFF1BF00))
             ) {
                 Image(
-                    painter = painterResource(id = R.drawable.espa),
+                    painter = painterResource(id = R.drawable.espaa),
                     contentDescription = "escudo",
                     modifier= Modifier.size(250.dp).padding()
                 )
             }
-            Row(
-                modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFFDD0000))
-            ) { }
-            Row(modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFFFFCE00)) ){ }
+            Row(modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFFAA151B)) ){ }
         }
     }
 }
