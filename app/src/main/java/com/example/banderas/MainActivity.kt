@@ -31,14 +31,14 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding).fillMaxSize()
                     ) {
                         Row(
-                            modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFF009246))
+                            modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Black)
                         ) { }
 
                         Row(
-                            modifier = Modifier.fillMaxWidth().weight(1f).background(Color.White)
+                            modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFFDD0000))
                         ) { }
 
-                        Row(modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFFCE2B37)) ){ }
+                        Row(modifier = Modifier.fillMaxWidth().weight(1f).background(Color(0xFFFFCE00)) ){ }
                     }
                 }
             }
