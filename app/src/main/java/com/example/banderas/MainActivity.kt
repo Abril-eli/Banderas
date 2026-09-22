@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(innerPadding).fillMaxSize()
                     ) {
                         Row(
-                            modifier = Modifier.fillMaxWidth().weight(2f).background(Color.Yellow)
+                            modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Yellow)
                         ) { }
 
                         Row(
