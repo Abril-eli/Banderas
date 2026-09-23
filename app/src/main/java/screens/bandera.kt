@@ -19,21 +19,22 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BanderaScreen(modifier: Modifier= Modifier) {
-    Column(Modifier.fillMaxSize()) {
-        repeat(13) { index ->
-            Box(
-                Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .background(if (index % 2 == 0) Color(0xFFB22234) else Color.White)
-            )
-        }
+    Column(modifier = modifier.fillMaxSize()
+    ) {
+        Box(
+            modifier = Modifier.weight(1f)
+                .fillMaxHeight()
+                .background(Color.White)
+        )
+    Box(modifier = Modifier
+        .weight(1f)
+            .fillMaxWidth()
+            .background(Color.Red)
+    )
     }
-    Box(modifier = Modifier.fillMaxWidth(0.4f)
-            .fillMaxHeight(0.54f)
-            .background(Color(0xFF3C3B6E)))
-    // Aqui se agregan las estrellas con Canvas o un grid de Shapes pequenos
-
+    Box(modifier = Modifier.fillMaxWidth(0.5f)
+            .fillMaxHeight(0.30f)
+            .background(Color(0xFF221FB6)))
 }
 @Preview(showBackground = true)
 @Composable
