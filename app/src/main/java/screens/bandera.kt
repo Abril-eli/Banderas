@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -18,14 +19,22 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun BanderaScreen(modifier: Modifier= Modifier) {
-        Box(
-            modifier = Modifier.fillMaxSize().background(Color.White),
-            contentAlignment = Alignment.Center
-        ) {
-            Box(Modifier.size(225.dp).clip(CircleShape).background(Color.Red)
+    Column(Modifier.fillMaxSize()) {
+        repeat(13) { index ->
+            Box(
+                Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .background(if (index % 2 == 0) Color(0xFFB22234) else Color.White)
             )
         }
     }
+    Box(modifier = Modifier.fillMaxWidth(0.4f)
+            .fillMaxHeight(0.54f)
+            .background(Color(0xFF3C3B6E)))
+    // Aqui se agregan las estrellas con Canvas o un grid de Shapes pequenos
+
+}
 @Preview(showBackground = true)
 @Composable
 fun BanderaPreview(){
