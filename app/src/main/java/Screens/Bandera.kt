@@ -21,19 +21,32 @@ import com.example.banderas.R
     fun BanderaScreen(modifier: Modifier = Modifier) {
         ConstraintLayout(modifier) {
             val (caja,caja1) = createRefs()
-            Box(modifier = Modifier.size(80.dp).background(Color.Red).constrainAs(caja) {
+            val lineaguia=createGuidelineFromStart(0.333f)
+            val lineaguia2=createGuidelineFromStart(0.666f)
+            Box(modifier = Modifier.size(80.dp).background(Color.Green).
+            constrainAs(caja) {
            start.linkTo(parent.start)
-                end.linkTo(parent.end)
+                end.linkTo(lineaguia)
            top.linkTo(parent.top)
                 bottom.linkTo(parent.bottom)
+                height= Dimension.fillToConstraints
+                width= Dimension.fillToConstraints
 //
             })
-            Box(modifier = Modifier.size(80.dp).background(Color.Green).constrainAs(caja1) {
-                start.linkTo(caja.start)
-                end.linkTo(caja.end)
+            Box(modifier = Modifier.size(80.dp).background(Color.White).constrainAs(caja1) {
+                start.linkTo(lineaguia)
+                end.linkTo(lineaguia2)
                 top.linkTo(parent.top)
-                bottom.linkTo(caja.top)
-                verticalBias=0.3f
+                bottom.linkTo(parent.bottom)
+                height= Dimension.fillToConstraints
+                width= Dimension.fillToConstraints
+
+            })
+            Box(modifier = Modifier.size(80.dp).background(Color.Red).constrainAs(caja1) {
+                start.linkTo(lineaguia2)
+                end.linkTo(parent.end)
+                top.linkTo(parent.top)
+                bottom.linkTo(parent.bottom)
                 height= Dimension.fillToConstraints
                 width= Dimension.fillToConstraints
 
