@@ -23,7 +23,7 @@ import com.example.banderas.R
             val (caja,caja1) = createRefs()
             val lineaguia=createGuidelineFromStart(0.333f)
             val lineaguia2=createGuidelineFromStart(0.666f)
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFF006341)).
+            Box(modifier = Modifier.size(80.dp).background(Color(0xFF0055A4)).
             constrainAs(caja) {
            start.linkTo(parent.start)
                 end.linkTo(lineaguia)
@@ -38,16 +38,10 @@ import com.example.banderas.R
                 end.linkTo(lineaguia2)
                 top.linkTo(parent.top)
                 bottom.linkTo(parent.bottom)
-                height= Dimension.fillToConstraints
-                width= Dimension.fillToConstraints
-
-                Image(
-                    painter = painterResource(id = R.drawable.mexico),
-                    contentDescription = "Escudo nacional",
-                    modifier = Modifier.size(100.dp)
-                )
+                height = Dimension.fillToConstraints
+                width = Dimension.fillToConstraints
             })
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFFCE1126)).constrainAs(caja1) {
+            Box(modifier = Modifier.size(80.dp).background(Color(0xFFEF4135)).constrainAs(caja1) {
                 start.linkTo(lineaguia2)
                 end.linkTo(parent.end)
                 top.linkTo(parent.top)
