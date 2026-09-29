@@ -23,7 +23,7 @@ import com.example.banderas.R
             val (caja,caja1) = createRefs()
             val lineaguia=createGuidelineFromStart(0.333f)
             val lineaguia2=createGuidelineFromStart(0.666f)
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFF009246)).
+            Colum(modifier = Modifier.size(80.dp).background(Color(0xFF009246)).
             constrainAs(caja) {
            start.linkTo(parent.start)
                 end.linkTo(lineaguia)
@@ -52,7 +52,13 @@ import com.example.banderas.R
             })
         }
     }
-    @Preview(showBackground = true)
+
+@Composable
+fun Colum(modifier: Modifier) {
+    TODO("Not yet implemented")
+}
+
+@Preview(showBackground = true)
     @Composable
     fun BanderaPreview() {
         BanderaScreen(modifier = Modifier.fillMaxSize())
