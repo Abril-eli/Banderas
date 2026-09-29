@@ -41,6 +41,11 @@ import com.example.banderas.R
                 height= Dimension.fillToConstraints
                 width= Dimension.fillToConstraints
 
+                Image(
+                    painter = painterResource(id = R.drawable.mexico),
+                    contentDescription = "Escudo nacional",
+                    modifier = Modifier.size(100.dp)
+                )
             })
             Box(modifier = Modifier.size(80.dp).background(Color(0xFFCE1126)).constrainAs(caja1) {
                 start.linkTo(lineaguia2)
