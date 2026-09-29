@@ -2,6 +2,7 @@ package Screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,33 +20,34 @@ import com.example.banderas.R
 
     @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-        ConstraintLayout(modifier) {
-            val (caja,caja1) = createRefs()
-            val lineaguia=createGuidelineFromStart(0.333f)
-            val lineaguia2=createGuidelineFromStart(0.666f)
-            Colum(  )
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFF009246)).
+        ConstraintLayout(modifier = modifier.fillMaxSize()
+        ) {
+            val (caja,caja1,caja2) = createRefs()
+            val lineaguia=createGuidelineFromTop(0.333f)
+            val lineaguia2=createGuidelineFromTop(0.666f)
+
+            Box(modifier = Modifier.size(80.dp).background(Color.Black).
             constrainAs(caja) {
-           start.linkTo(parent.start)
-                end.linkTo(lineaguia)
-           top.linkTo(parent.top)
-                bottom.linkTo(parent.bottom)
-                height= Dimension.fillToConstraints
-                width= Dimension.fillToConstraints
-//
-            })
-            Box(modifier = Modifier.size(80.dp).background(Color.White).constrainAs(caja1) {
-                start.linkTo(lineaguia)
-                end.linkTo(lineaguia2)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
                 top.linkTo(parent.top)
                 bottom.linkTo(parent.bottom)
                 height = Dimension.fillToConstraints
                 width = Dimension.fillToConstraints
+//
             })
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFFCE2B37)).constrainAs(caja1) {
-                start.linkTo(lineaguia2)
+            Box(modifier = Modifier.size(80.dp).background(Color(0xFFDD0000)).constrainAs(caja1) {
+                start.linkTo(parent.start)
                 end.linkTo(parent.end)
-                top.linkTo(parent.top)
+                top.linkTo(lineaguia)
+                bottom.linkTo(lineaguia2)
+                height = Dimension.fillToConstraints
+                width = Dimension.fillToConstraints
+            })
+            Box(modifier = Modifier.size(80.dp).background(Color(0xFFFFCE00)).constrainAs(caja2) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                top.linkTo(lineaguia2)
                 bottom.linkTo(parent.bottom)
                 height= Dimension.fillToConstraints
                 width= Dimension.fillToConstraints
