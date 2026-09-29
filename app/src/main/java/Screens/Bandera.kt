@@ -23,10 +23,10 @@ import com.example.banderas.R
         ConstraintLayout(modifier = modifier.fillMaxSize()
         ) {
             val (caja,caja1,caja2) = createRefs()
-            val lineaguia=createGuidelineFromTop(0.333f)
+            val lineaguia=createGuidelineFromTop(0.444f)
             val lineaguia2=createGuidelineFromTop(0.666f)
 
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFFDD0000)).
+            Box(modifier = Modifier.size(80.dp).background(Color(0xFFFFCE00)).
             constrainAs(caja) {
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
@@ -36,7 +36,7 @@ import com.example.banderas.R
                 width = Dimension.fillToConstraints
 //
             })
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFFFFCE00)).constrainAs(caja1) {
+            Box(modifier = Modifier.size(80.dp).background(Color.Blue).constrainAs(caja1) {
                 start.linkTo(parent.start)
                 end.linkTo(parent.end)
                 top.linkTo(lineaguia)
