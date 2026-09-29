@@ -23,7 +23,7 @@ import com.example.banderas.R
             val (caja,caja1) = createRefs()
             val lineaguia=createGuidelineFromStart(0.333f)
             val lineaguia2=createGuidelineFromStart(0.666f)
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFF0055A4)).
+            Box(modifier = Modifier.size(80.dp).background(Color(0xFF009246)).
             constrainAs(caja) {
            start.linkTo(parent.start)
                 end.linkTo(lineaguia)
@@ -41,7 +41,7 @@ import com.example.banderas.R
                 height = Dimension.fillToConstraints
                 width = Dimension.fillToConstraints
             })
-            Box(modifier = Modifier.size(80.dp).background(Color(0xFFEF4135)).constrainAs(caja1) {
+            Box(modifier = Modifier.size(80.dp).background(Color(0xFFCE2B37)).constrainAs(caja1) {
                 start.linkTo(lineaguia2)
                 end.linkTo(parent.end)
                 top.linkTo(parent.top)
