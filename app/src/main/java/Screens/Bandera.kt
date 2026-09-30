@@ -1,4 +1,6 @@
 package Screens
+import android.R
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
@@ -11,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Canvas
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontVariation.width
 import androidx.compose.ui.tooling.preview.Preview
@@ -20,24 +23,12 @@ import androidx.constraintlayout.compose.Dimension
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-        Box(
-            modifier = modifier.aspectRatio(1f)
-                .background(Color.Red),
-        ) {
-            Box(
-                modifier = Modifier.align(Alignment.Center)
-                    .fillMaxWidth(0.2f)
-                    .fillMaxHeight(0.62f)
-                    .background(Color.White)
-            )
-            Box(
-                modifier = Modifier.align(Alignment.Center)
-                    .fillMaxHeight(0.2f)
-                    .fillMaxWidth(0.62f)
-                    .background(Color.White)
-            )
-        }
+    Canvas(modifier=modifier.fillMaxSize()){
+     drawRect(color= Color(0xFFE30A17))
+        val 
+
     }
+}
 @Preview(showBackground = true)
     @Composable
     fun BanderaPreview() {
