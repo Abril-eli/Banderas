@@ -21,6 +21,9 @@ import androidx.constraintlayout.compose.Dimension
         val (caja,caja1,caja2) = createRefs()
         val lineaguia=createGuidelineFromTop(0.2f)
         val lineaguia2=createGuidelineFromTop(0.3f)
+        val linea=createGuidelineFromStart(0.4f)
+
+
 
         Box(modifier = Modifier.size(80.dp).background(Color(0xFFB22234)).
         constrainAs(caja) {
@@ -40,8 +43,8 @@ import androidx.constraintlayout.compose.Dimension
             height = Dimension.fillToConstraints
             width = Dimension.fillToConstraints
         })
-        Box(modifier = Modifier.size(80.dp).background(Color(0xFFB22234)).constrainAs(caja2) {
-            start.linkTo(parent.start)
+        Box(modifier = Modifier.size(80.dp).background(Color.Blue).constrainAs(caja2) {
+            start.linkTo(linea)
             end.linkTo(parent.end)
             top.linkTo(lineaguia2)
             bottom.linkTo(parent.bottom)
