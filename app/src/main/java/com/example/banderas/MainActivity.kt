@@ -1,5 +1,6 @@
 package com.example.banderas
 
+import Screens.BanderaScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,37 +34,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             BanderasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Row(
-                        modifier = Modifier
-                            .padding(innerPadding)
-                            .fillMaxSize()
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxHeight()
-                                .weight(1f)
-                                .background(Color(0xFF006341))
-                        )
-                        Box(
-                            modifier = Modifier
-                                .fillMaxHeight()
-                                .weight(1f)
-                                .background(Color.White),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.mexico),
-                                contentDescription = "Escudo nacional",
-                                modifier = Modifier.size(100.dp)
-                            )
-                        }
-                        Box(
-                            modifier = Modifier
-                                .fillMaxHeight()
-                                .weight(1f)
-                                .background(Color(0xFFCE1126))
-                        )
-                    }
+                    BanderaScreen(modifier = Modifier.padding(innerPadding).fillMaxSize())
                 }
             }
         }
