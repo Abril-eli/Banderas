@@ -1,62 +1,71 @@
 package Screens
-import android.R
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Canvas
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontVariation.width
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.Dimension
-import java.nio.file.Files.size
-import java.time.temporal.TemporalQueries.offset
+import androidx.compose.ui.graphics.Path
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    Canvas(modifier = modifier.fillMaxSize()) {
-        drawRect(color = Color(0xFFE30A17))
-        val c = size.height / 2f
-        val cc = size.height * .3f
-        drawCircle(
-            color = Color.White,
-            radius = cc, center = Offset(size.width * 0.38f, c)
-        )
-        drawCircle(
-            color = Color(0xFFE30A17), radius = size.height * 0.24f, center =
-                Offset(size.width * 0.38f + size.height * .09f, c)
-        )
-
-        val center = Offset(size.width * 0.58f, c)
-        val r = size.height * 0.10f
-
-        val puntos = List(5) { i ->
-            val angulo = Math.toRadians((-90 + i * 72).toDouble())
-            Offset(
-                center.x + (r * kotlin.math.cos(angulo)).toFloat(),
-                center.y + (r * kotlin.math.sin(angulo)).toFloat()
+    Box(
+        modifier = modifier.width(50.dp).fillMaxWidth().background(Color.Red)
+    ) {
+        Canvas(modifier = Modifier.fillMaxSize()) {
+            drawCircle(
+                color = Color.White, radius =
+                    100f, center = Offset(120f, size.height / 2)
+            )
+            drawCircle(
+                color = Color.Red, radius =
+                    90f, center = Offset(140f, size.height / 2)
             )
         }
-        drawLine(Color.White, puntos[0], puntos[2], strokeWidth = 4f)
-        drawLine(Color.White, puntos[2], puntos[4], strokeWidth = 4f)
-        drawLine(Color.White, puntos[4], puntos[1], strokeWidth = 4f)
-        drawLine(Color.White, puntos[1], puntos[3], strokeWidth = 4f)
-        drawLine(Color.White, puntos[3], puntos[0], strokeWidth = 4f)
+        Estrella(modifier = Modifier
+            .size(50.dp)
+        .align(Alignment.CenterStart)
+        .offset( 150.dp)
+        )
     }
 }
+@Composable
+fun Estrella(
+    modifier: Modifier = Modifier,
+    color: Color = Color.White,
+) {
+    Canvas(modifier = modifier) {
+        val cx = size.width / 2
+        val cy = size.height / 2
 
+        val radioExterior = minOf(size.width, size.height) / 2
+        val radioInterior = radioExterior * 0.4f
+
+        val path = Path()
+
+        for (i in 0 until 10) {
+            val radio = if (i % 2 == 0) radioExterior else radioInterior
+            val angulo = Math.toRadians((i * 36.0) - 90)
+
+            val x = (cx + radio * kotlin.math.cos(angulo)).toFloat()
+            val y = (cy + radio * kotlin.math.sin(angulo)).toFloat()
+
+            if (i == 0) path.moveTo(x, y)
+            else path.lineTo(x, y)
+        }
+        path.close()
+        drawPath(path, color)
+    }
+}
 @Preview(showBackground = true)
     @Composable
     fun BanderaPreview() {
