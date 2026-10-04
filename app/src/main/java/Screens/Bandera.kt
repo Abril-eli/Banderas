@@ -14,15 +14,43 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Path
+import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-   val caj
-        }
+    ConstraintLayout(
+        modifier = modifier.fillMaxSize()
+    ) {
+        val (caja, caja1, cajaCanvas) = createRefs()
+        val lineaguia = createGuidelineFromTop(0.77f)
+        val lineaguia2 = createGuidelineFromTop(0.22f)
+
+        Box(modifier = Modifier.size(80.dp).background(Color.Blue).constrainAs(caja) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            top.linkTo(lineaguia)
+            bottom.linkTo(parent.bottom)
+            height = Dimension.fillToConstraints
+            width = Dimension.fillToConstraints
+        })
+        Box(modifier = Modifier.size(80.dp).background(Color.Blue).constrainAs(caja1) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            top.linkTo(parent.top)
+            bottom.linkTo(lineaguia2)
+            height = Dimension.fillToConstraints
+            width = Dimension.fillToConstraints
+        })
         Canvas(
             modifier = Modifier
-                .align(Alignment.Center)
                 .size(60.dp)
+                .constrainAs(cajaCanvas){
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                }
         ) {
             val path = starOfDavidPath(
                 cx = size.width / 2,
@@ -30,6 +58,7 @@ import androidx.compose.ui.graphics.Path
                 r = size.width / 2
             )
             drawPath(path = path, color = Color(0xFF0A35AF))
+
         }
     }
 }
