@@ -17,11 +17,7 @@ import androidx.compose.ui.graphics.Path
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxSize()) {
-        Column(Modifier.fillMaxSize()) {
-            Box(Modifier.weight(1f).fillMaxWidth().background(Color(0xFF0A35AF)))
-            Box(Modifier.weight(5f).fillMaxWidth().background(Color.White))
-            Box(Modifier.weight(1f).fillMaxWidth().background(Color(0xFF0A35AF)))
+   val caj
         }
         Canvas(
             modifier = Modifier
