@@ -29,18 +29,18 @@ import androidx.compose.ui.unit.dp
         Canvas(
             modifier = Modifier
                 .fillMaxHeight()
-                .fillMaxWidth(0.4f) // Ocupa el 40% del ancho de la bandera
+                .fillMaxWidth(0.4f)
                 .align(Alignment.CenterStart)
         ) {
             val triangulo = Path().apply {
                 moveTo(0f, 0f)
-                lineTo(size.width, size.height / 2) // Apunta hacia la mitad derecha
+                lineTo(size.width, size.height / 2)
                 lineTo(0f, size.height)
                 close()
             }
             drawPath(
                 path = triangulo,
-                color = Color(0xFFCC0000) // Rojo oficial de la bandera cubana
+                color = Color(0xFFCC0000)
             )
         }
         Estrella(
