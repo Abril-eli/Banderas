@@ -3,12 +3,9 @@ package Screens
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,34 +19,42 @@ import androidx.constraintlayout.compose.Dimension
     ConstraintLayout(
         modifier = modifier.fillMaxSize()
     ) {
-        val (caja, caja1,caja2,caja3,caja4, cajaCanvas) = createRefs()
-        val lineaguia = createGuidelineFromTop(0.88f)
-        val lineaguia2 = createGuidelineFromTop(0.133f)
-        val lineaguia3 = createGuidelineFromTop(0.77f)
-        val lineaguia4 = createGuidelineFromTop(0.55f)
+        val (caja, caja1,caja2,caja3, cajaCanvas) = createRefs()
+        val lineaguia = createGuidelineFromTop(0.2f)
+        val lineaguia2 = createGuidelineFromTop(0.4f)
+        val lineaguia3 = createGuidelineFromTop(0.6f)
+        val lineaguia4 = createGuidelineFromTop(0.8f)
 
 
         Box(modifier = Modifier.size(80.dp).background(Color.Blue).constrainAs(caja) {
             start.linkTo(parent.start)
             end.linkTo(parent.end)
-            top.linkTo(lineaguia)
-            bottom.linkTo(parent.bottom)
+            top.linkTo(parent.top)
+            bottom.linkTo(lineaguia)
             height = Dimension.fillToConstraints
             width = Dimension.fillToConstraints
         })
-        Box(modifier = Modifier.size(80.dp).background(Color.Blue).constrainAs(caja1) {
+        Box(modifier = Modifier.size(80.dp).background(Color.White).constrainAs(caja1) {
             start.linkTo(parent.start)
             end.linkTo(parent.end)
-            top.linkTo(parent.top)
+            top.linkTo(lineaguia)
             bottom.linkTo(lineaguia2)
             height = Dimension.fillToConstraints
             width = Dimension.fillToConstraints
         })
-        Box(modifier = Modifier.size(80.dp).background(Color.White).constrainAs(caja2) {
+        Box(modifier = Modifier.size(80.dp).background(Color.Blue).constrainAs(caja2) {
+            start.linkTo(parent.start)
+            end.linkTo(parent.end)
+            top.linkTo(lineaguia2)
+            bottom.linkTo(lineaguia3)
+            height = Dimension.fillToConstraints
+            width = Dimension.fillToConstraints
+        })
+        Box(modifier = Modifier.size(80.dp).background(Color.White).constrainAs(caja3) {
             start.linkTo(parent.start)
             end.linkTo(parent.end)
             top.linkTo(lineaguia3)
-            bottom.linkTo(parent.bottom)
+            bottom.linkTo(lineaguia4)
             height = Dimension.fillToConstraints
             width = Dimension.fillToConstraints
         })
@@ -61,22 +66,27 @@ import androidx.constraintlayout.compose.Dimension
             height = Dimension.fillToConstraints
             width = Dimension.fillToConstraints
         })
+
         Canvas(
-            modifier = Modifier
-                .size(60.dp)
+            modifier= Modifier
                 .constrainAs(cajaCanvas){
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                     top.linkTo(parent.top)
                     bottom.linkTo(parent.bottom)
+                    height = Dimension.fillToConstraints
+                    width = Dimension.fillToConstraints
                 }
         ) {
-            val path = starOfDavidPath(
-                cx = size.width / 2,
-                cy = size.height / 2,
-                r = size.width / 2
+            val triangle = Path().apply {
+                moveTo(0f, 0f)
+                lineTo(size.width * 0.4f, size.height / 2)
+                lineTo(0f, size.height)
+                close()
+            }
+            drawPath(
+                path = triangle, color = Color.Red
             )
-            drawPath(path = path, color = Color(0xFF0A35AF))
 
         }
     }
