@@ -17,71 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxSize()) {
-    Column(modifier = Modifier.fillMaxSize()) {
-        Box(Modifier.weight(1f).fillMaxWidth().background(Color.Blue))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.White))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.Blue))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.White))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.Blue))
 
-        }
-        Canvas(
-            modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth(0.4f)
-                .align(Alignment.CenterStart)
-        ) {
-            val triangulo = Path().apply {
-                moveTo(0f, 0f)
-                lineTo(size.width, size.height / 2)
-                lineTo(0f, size.height)
-                close()
-            }
-            drawPath(
-                path = triangulo,
-                color = Color(0xFFCC0000)
-            )
-        }
-        Estrella(
-            modifier = Modifier
-                .size(50.dp)
-                .align(Alignment.CenterStart)
-                .offset(x = 24.dp) )
-    }
-    }
-
-    @Composable
-    fun Estrella(modifier: Modifier = Modifier) {
-        Canvas(modifier = modifier) {
-            val cx = size.width / 2
-            val cy = size.height / 2
-
-            val radioExterior = minOf(size.width, size.height) / 2
-            val radioInterior = radioExterior * 0.4f
-
-            val path = Path()
-
-            for (i in 0 until 10) {
-                val radio = if (i % 2 == 0) radioExterior else radioInterior
-                val angulo = Math.toRadians((i * 36.0) - 90)
-
-                val x = (cx + radio * kotlin.math.cos(angulo)).toFloat()
-                val y = (cy + radio * kotlin.math.sin(angulo)).toFloat()
-
-                if (i == 0)
-                    path.moveTo(x, y)
-                else
-                    path.lineTo(x, y)
-            }
-
-            path.close()
-
-            drawPath(
-                path = path,
-                color = Color.White
-            )
-        }
     }
 @Preview(showBackground = true)
     @Composable
