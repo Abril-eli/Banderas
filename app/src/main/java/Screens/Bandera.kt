@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
         Box(Modifier.fillMaxWidth().weight(1f).background(Color.Blue))
         Box(Modifier.fillMaxWidth().weight(1f).background(Color.White))
         Box(Modifier.fillMaxWidth().weight(1f).background(Color.Blue))
-
         }
         Canvas(
             modifier = Modifier
