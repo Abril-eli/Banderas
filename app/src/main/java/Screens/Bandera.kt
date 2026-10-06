@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,7 +20,7 @@ import androidx.constraintlayout.compose.Dimension
     ConstraintLayout(
         modifier = modifier.fillMaxSize()
     ) {
-        val (caja, caja1,caja2,caja3, cajaCanvas) = createRefs()
+        val (caja, caja1, caja2, caja3,cajaCanvas,estrella) = createRefs()
         val lineaguia = createGuidelineFromTop(0.2f)
         val lineaguia2 = createGuidelineFromTop(0.4f)
         val lineaguia3 = createGuidelineFromTop(0.6f)
@@ -68,8 +69,8 @@ import androidx.constraintlayout.compose.Dimension
         })
 
         Canvas(
-            modifier= Modifier
-                .constrainAs(cajaCanvas){
+            modifier = Modifier
+                .constrainAs(cajaCanvas) {
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                     top.linkTo(parent.top)
@@ -89,27 +90,43 @@ import androidx.constraintlayout.compose.Dimension
             )
 
         }
+        Estrella(
+            modifier= Modifier.size(80.dp).constrainAs(estrella){
+                start.linkTo(parent.start, margin = 20.dp)
+                top.linkTo(parent.top)
+                bottom.linkTo(parent.bottom)
+            }
+
+        )
     }
 }
-fun starOfDavidPath(cx: Float, cy: Float, r: Float): Path {
-    val path = Path()
-    for (i in 0..2) {
-        val angle = Math.toRadians((-90.0 + i * 120.0))
-        val x = cx + r * kotlin.math.cos(angle).toFloat()
-        val y = cy + r * kotlin.math.sin(angle).toFloat()
-        if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
-    }
-    path.close()
-    for (i in 0..2) {
-        val angle = Math.toRadians((90.0 + i * 120.0))
-        val x = cx + r * kotlin.math.cos(angle).toFloat()
-        val y = cy + r * kotlin.math.sin(angle).toFloat()
-        if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
-    }
-    path.close()
+@Composable
+fun Estrella(
+    modifier: Modifier = Modifier,
+    color: Color = Color.White, ) {
+    Canvas(modifier = modifier) {
+        val cx = size.width / 2
+        val cy = size.height / 2
 
-    return path
+        val radioExterior = minOf(size.width, size.height) / 2
+        val radioInterior = radioExterior * 0.4f
+
+        val path = Path()
+
+        for (i in 0 until 10) {
+            val radio = if (i % 2 == 0) radioExterior else radioInterior
+            val angulo = Math.toRadians((i * 36.0) - 90)
+
+            val x = (cx + radio * kotlin.math.cos(angulo)).toFloat()
+            val y = (cy + radio * kotlin.math.sin(angulo)).toFloat()
+
+            if (i == 0) path.moveTo(x, y)
+            else path.lineTo(x, y)
+        }
+        path.close()
+        drawPath(path, color)
     }
+}
 @Preview(showBackground = true)
     @Composable
     fun BanderaPreview() {
