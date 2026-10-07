@@ -1,11 +1,6 @@
 package Screens
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -13,46 +8,72 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
+
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    Box(modifier = modifier.fillMaxSize()) {
-    Column(modifier = Modifier.fillMaxSize()) {
-        Box(Modifier.weight(1f).fillMaxWidth().background(Color.Blue))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.White))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.Blue))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.White))
-        Box(Modifier.fillMaxWidth().weight(1f).background(Color.Blue))
-
-        }
+    ConstraintLayout(modifier = modifier.fillMaxSize()) {
         Canvas(
             modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth(0.4f)
-                .align(Alignment.CenterStart)
+                .fillMaxSize()
+
         ) {
             val triangulo = Path().apply {
                 moveTo(0f, 0f)
-                lineTo(size.width, size.height / 2)
+                lineTo(size.width, 0f)
+                lineTo(size.width, size.height)
+                close()
+            }
+            val triangulo2 = Path().apply {
+                moveTo(0f, 0f)
                 lineTo(0f, size.height)
+                lineTo(size.width, size.height)
                 close()
             }
             drawPath(
                 path = triangulo,
-                color = Color(0xFFCC0000)
+                color = Color(0xFFCC0000),
+            )
+            drawPath(
+                path = triangulo2,
+                color = Color.Black,
             )
         }
         Estrella(
             modifier = Modifier
-                .size(50.dp)
-                .align(Alignment.CenterStart)
-                .offset(x = 24.dp) )
+                .size(40.dp)
+                .offset(x = 150.dp, y = 100.dp)
+        )
     }
-    }
+    Estrella(
+        modifier = Modifier
+            .size(40.dp)
+            .offset(x = 270.dp, y = 200.dp)
+    )
+Estrella(
+modifier = Modifier
+.size(40.dp)
+.offset(x = 200.dp, y=250.dp) )
+    Estrella(
+        modifier = Modifier
+            .size(40.dp)
+            .offset(x = 150.dp, y=320.dp) )
+    Estrella(
+        modifier = Modifier
+            .size(20.dp)
+            .offset(x = 100.dp, y=370.dp) )
+    Estrella(
+        modifier = Modifier
+            .size(50.dp)
+            .offset(x = 450.dp, y = 150.dp),
+        color = Color.Yellow
+    )
+}
+
 
     @Composable
-    fun Estrella(modifier: Modifier = Modifier) {
+    fun Estrella(modifier: Modifier = Modifier,color: Color = Color.White) {
         Canvas(modifier = modifier) {
             val cx = size.width / 2
             val cy = size.height / 2
@@ -76,10 +97,9 @@ import androidx.compose.ui.unit.dp
             }
 
             path.close()
-
             drawPath(
-                path = path,
-                color = Color.White
+                        path = path,
+                        color = color
             )
         }
     }
