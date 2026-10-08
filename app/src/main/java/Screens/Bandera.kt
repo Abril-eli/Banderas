@@ -17,8 +17,9 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.fillMaxSize()) {
+    ConstraintLayout(modifier = modifier.fillMaxSize()) {
             Canvas(modifier = modifier.fillMaxSize()) {
+                var lineaguia=
                 val azul = Path().apply {
                     moveTo(0f, 0f)
                     lineTo(size.width, 0f)
