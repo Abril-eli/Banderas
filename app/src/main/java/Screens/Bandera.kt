@@ -52,10 +52,6 @@ import androidx.compose.ui.tooling.preview.Preview
         )
     }
 }
-@Composable
-fun Colum(modifier: Modifier) {
-    TODO("Not yet implemented")
-}
 
 @Preview(showBackground = true)
     @Composable
