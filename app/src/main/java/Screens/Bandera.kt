@@ -1,5 +1,6 @@
 package Screens
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.graphics.Path
@@ -15,8 +17,24 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    ConstraintLayout(modifier = modifier.fillMaxSize()) {
+    Column(modifier = modifier.fillMaxSize()) {
             Canvas(modifier = modifier.fillMaxSize()) {
+                val azul = Path().apply {
+                    moveTo(0f, 0f)
+                    lineTo(size.width, 0f)
+                    lineTo(size.width, size.height * 0.43f)
+                    lineTo(size.width * 0.36f, size.height / 2f)
+                    close()
+                }
+                drawPath(azul, Color.Blue)
+                val amarillo = Path().apply {
+                    moveTo(0f, size.height)
+                    lineTo(size.width, size.height)
+                    lineTo(size.width, size.height * 0.57f)
+                    lineTo(size.width * 0.36f, size.height / 2f)
+                    close()
+                }
+                drawPath(amarillo, Color.Yellow)
                 val apex = Offset(size.width * 0.36f, size.height / 2f)
                 drawLine(Color.White, Offset(0f, 0f), apex, size.height * 0.30f)
                 drawLine(Color.White, Offset(0f, size.height), apex, size.height * 0.30f)
@@ -27,7 +45,14 @@ import androidx.constraintlayout.compose.ConstraintLayout
                 drawLine(Color.Green, Offset(0f, size.height), apex, size.height * 0.20f)
                 drawLine(Color.Green, apex, Offset(size.width, size.height * 0.14f), size.height * 0.20f)
                 drawLine(Color.Green, apex, Offset(size.width, size.height * 0.86f), size.height * 0.20f)
-
+                val triWidth = size.width * 0.20f
+                val trianglePath = Path().apply {
+                    moveTo(0f, 0f)
+                    lineTo(triWidth, size.height / 2f)
+                    lineTo(0f, size.height)
+                    close()
+                }
+                drawPath(trianglePath, color = Color.Black)
             }
     }
 }
