@@ -58,7 +58,6 @@ import androidx.constraintlayout.compose.ConstraintLayout
                 radius = radio,
                 center = Offset(lunaX, lunaY)
             )
-
             drawCircle(
                 color = Color.Red,
                 radius = radio * 0.85f,
