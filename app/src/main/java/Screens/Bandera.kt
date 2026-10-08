@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.graphics.Path
@@ -14,35 +15,38 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.fillMaxSize()) {
+    ConstraintLayout (modifier = modifier.fillMaxSize()) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
 
         ) {
-            val triangulo = Path().apply {
-                moveTo(0f, 0f)
-                lineTo(size.height / 2, 0f)
-                lineTo(0f, size.height)
+            val esquinaSupIzq = Offset(0f, 0f)
+            val esquinaSupDer = Offset(size.width, 0f)
+            val esquinaInfIzq = Offset(0f, size.height)
+            val esquinaInfDer = Offset(size.width, size.height)
+            val amarillo = Path().apply {
+                moveTo(esquinaSupIzq.x, esquinaSupIzq.y)
+                lineTo(esquinaSupDer.x, esquinaSupDer.y)
+                lineTo(esquinaInfIzq.x, esquinaInfIzq.y)
                 close()
             }
-            val triangulo2 = Path().apply {
-                moveTo(size.width, 0f)
-                lineTo(size.width, size.height)
-                lineTo(0f, size.height)
-                close()
-            }
-            drawPath(
-                path = triangulo,
-                color = Color.Yellow,
-            )
-            drawPath(
-                path = triangulo2,
-                color = Color(0xFFFF8C00)
-            )
 
+            val naranja = Path().apply {
+                moveTo(esquinaSupDer.x, esquinaSupDer.y)
+                lineTo(esquinaInfDer.x, esquinaInfDer.y)
+                lineTo(esquinaInfIzq.x, esquinaInfIzq.y)
+                close()
+            }
             val dragon = Path().apply {
                 moveTo(size.width * 0.25f, size.height * 0.75f)
+                drawPath(path = amarillo, color = Color.Yellow
+                )
+                drawPath(
+                    path = naranja,
+                    color = Color(0xFFFF9800)
+
+                )
 
                 quadraticBezierTo(
                     size.width * 0.10f, size.height * 0.50f,
