@@ -21,7 +21,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
- Column (modifier = modifier.fillMaxSize()) {
+ ConstraintLayout(modifier = modifier.fillMaxSize()) {
             Canvas(modifier = modifier.fillMaxSize()) {
                 drawRect(Color.Red, size = Size(size.width, size.height / 2f)
                 )
@@ -42,8 +42,6 @@ import androidx.constraintlayout.compose.ConstraintLayout
                         radius = size.width * 0.12f,
                         center = centroSol
                     )
-
-// Rayos
                     for (i in 0 until 17) {
                         val angulo = Math.toRadians((i * 360.0 / 17))
 
