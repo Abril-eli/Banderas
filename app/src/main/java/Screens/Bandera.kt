@@ -20,12 +20,11 @@ import androidx.constraintlayout.compose.Dimension
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = modifier.fillMaxSize()) {
-            Canvas(modifier = modifier.fillMaxSize()) {
                 val (caja,caja1,) = createRefs()
-                val lineaguia=createGuidelineFromTop(0.333f)
-                val lineaguia2=createGuidelineFromTop(0.666f)
+                val lineaguia=createGuidelineFromTop(0.444f)
+                val lineaguia2=createGuidelineFromTop(0.99f)
 
-                Box(modifier = Modifier.size(80.dp).background(Color(0xFF74ACDF)).
+                Box(modifier = Modifier.size(80.dp).background(Color.Blue).
                 constrainAs(caja) {
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
@@ -33,8 +32,16 @@ import androidx.constraintlayout.compose.Dimension
                     bottom.linkTo(parent.bottom)
                     height = Dimension.fillToConstraints
                     width = Dimension.fillToConstraints
-                    )
-
+                })
+                Box(modifier = Modifier.size(80.dp).background(Color.Yellow).constrainAs(caja1) {
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    top.linkTo(lineaguia)
+                    bottom.linkTo(lineaguia2)
+                    height = Dimension.fillToConstraints
+                    width = Dimension.fillToConstraints
+                })
+        Canvas(modifier = modifier.fillMaxSize()) {
                 val apex = Offset(size.width * 0.36f, size.height / 2f)
                 drawLine(Color.White, Offset(0f, 0f), apex, size.height * 0.30f)
                 drawLine(Color.White, Offset(0f, size.height), apex, size.height * 0.30f)
