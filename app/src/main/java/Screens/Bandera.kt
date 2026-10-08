@@ -18,7 +18,6 @@ import androidx.constraintlayout.compose.ConstraintLayout
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
-
         ) {
             val triangulo = Path().apply {
                 moveTo(0f, 0f)
