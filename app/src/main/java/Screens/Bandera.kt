@@ -43,6 +43,91 @@ import com.example.banderas.R
             }
         }
         Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
+            repeat(29) { i ->
+                pixel(colorResource(id = R.color.morado1))
+            }
+        }
+        Row() {
             repeat(7) { i ->
                 pixel(colorResource(id = R.color.morado1))
             }
@@ -447,9 +532,7 @@ import com.example.banderas.R
         }
         Row {
             pixel(colorResource(id = R.color.morado1))
-
             repeat(8) { pixel(colorResource(id = R.color.verdere)) }
-
             pixel(colorResource(id = R.color.marron))
             repeat(10) { pixel(colorResource(id = R.color.marron)) }
             pixel(colorResource(id = R.color.marron))
@@ -601,6 +684,24 @@ import com.example.banderas.R
             repeat(12) { pixel(colorResource(id = R.color.azul)) }
 
             repeat(16) { pixel(colorResource(id = R.color.morado1)) }
+        }
+        Row {
+            repeat(27) { pixel(colorResource(id = R.color.azul)) }
+        }
+        Row {
+            repeat(27) { pixel(colorResource(id = R.color.azul)) }
+        }
+        Row {
+            repeat(27) { pixel(colorResource(id = R.color.azul)) }
+        }
+        Row {
+            repeat(27) { pixel(colorResource(id = R.color.azul)) }
+        }
+        Row {
+            repeat(27) { pixel(colorResource(id = R.color.azul)) }
+        }
+        Row {
+            repeat(27) { pixel(colorResource(id = R.color.azul)) }
         }
 
 
