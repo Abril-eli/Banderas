@@ -15,9 +15,11 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    Column(modifier = modifier.fillMaxSize()) {
+    ConstraintLayout(modifier = modifier.fillMaxSize()) {
             Canvas(modifier = modifier.fillMaxSize()) {
                 drawRect(color = Color.Blue)
+                val centroX = size.width / 2
+                val centroY = size.height / 2
                 val grosorDiagonalBlanca = size.height * 0.22f
                 val grosorDiagonalBlanca2 = size.width * 0.22f
                 val grosorDiagonalRojo2 = size.width * 0.11f
@@ -46,28 +48,37 @@ import androidx.constraintlayout.compose.ConstraintLayout
                     Offset(0f, size.height),
                     grosorDiagonalRojo
                 )
+                drawLine(Color.White, Offset(centroX, 0f),
+                Offset(centroX, size.height)
+
+                )
                 drawLine(
                     Color.White,
-                    Offset(size.width/2, 0f),
-                    Offset(size.width / 2, size.height),
+                    Offset( 0f,size.height/2),
+                    Offset( size.width,size.height/2),
                     grosorDiagonalBlanca2
                 )
                 drawLine(
                     Color.Red,
-                    Offset(size.width/2, 0f),
-                    Offset(size.width / 2, size.height),
+                    Offset( 0f,size.height/2),
+                    Offset( size.width,size.height/2),
+                    grosorDiagonalRojo2
+                )
+                drawLine(Color.White,
+                    Offset(centroX,0f),
+                Offset(centroX, size.height),
+                    grosorDiagonalBlanca2
+                )
+                drawLine(
+                    Color.Red,
+                    Offset( centroX,0f),
+                    Offset( centroX,size.height),
                     grosorDiagonalRojo2
                 )
                 drawLine(
-                    Color.White,
-                    Offset( 0f,size.height/2),
-                    Offset( size.width,size.height/2),
-                    grosorDiagonalBlanca2
-                )
-                drawLine(
                     Color.Red,
-                    Offset( 0f,size.height/2),
-                    Offset( size.width,size.height/2),
+                    Offset( 0f,centroY),
+                    Offset( size.width,centroY),
                     grosorDiagonalRojo2
                 )
 
