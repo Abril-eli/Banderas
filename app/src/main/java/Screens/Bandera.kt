@@ -1,4 +1,5 @@
 package Screens
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -6,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -14,49 +17,47 @@ import androidx.constraintlayout.compose.Dimension
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    ConstraintLayout(modifier = modifier.fillMaxSize()
+    Column(modifier = modifier.fillMaxSize()
     ) {
-        val (caja,caja1,caja2) = createRefs()
-        val lineaguia=createGuidelineFromTop(0.388f)//use
-        val linea2=createGuidelineFromStart(0.5f)//use
-        Box(modifier = Modifier.size(80.dp).background(Color(0xFFB22234)).
-        constrainAs(caja) {
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(parent.top)
-            bottom.linkTo(parent.bottom)
-            height = Dimension.fillToConstraints
-            width = Dimension.fillToConstraints
-        })
-        Column(modifier = Modifier.constrainAs(caja1) {
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(parent.top)
-            bottom.linkTo(parent.bottom)
-            height = Dimension.fillToConstraints
-            width = Dimension.fillToConstraints
-        }
-        ){
-            repeat(13) { i ->
-                Box(
-                    modifier = Modifier.weight(.1f).fillMaxSize()
-                        .background(
-                            if (i % 2 == 0)
-                                Color(0xFFB22234)
-                            else
-                                Color.White
-                        )
+        Canvas(modifier = Modifier.fillMaxSize()) {
+            repeat(10) { i ->
+                val rectWidth = 100f
+                val rectHeight = 100f
+                drawRect(
+                    color = Color.Black,
+                    topLeft = Offset(
+                        (size.width - rectWidth) / 3 + 100,
+                        (size.height - rectHeight) / 2
+                    ),
+                    size = Size(300f, 30f)
                 )
-            }}
-        Box(modifier = Modifier.size(80.dp).
-        background(Color.Blue).constrainAs(caja2) {
-            start.linkTo(parent.start)
-            end.linkTo(linea2)
-            top.linkTo(parent.top)
-            bottom.linkTo(lineaguia)
-            height = Dimension.fillToConstraints
-            width = Dimension.fillToConstraints
-        })
+                repeat(10) { i ->
+                    val rectWidth2 = 300f
+                    val rectHeight2 = 100f
+                    drawRect(
+                        color = Color.Black,
+                        topLeft = Offset(
+                            (size.width - rectWidth2) / 3+ 80,
+                            (size.height - rectHeight2) / 2 + 20f
+                        ),
+                        size = Size(100f, 30f)
+                    )
+                    repeat(10) { i ->
+                        val rectWidth3 = 300f
+                        val rectHeight3 = 100f
+                        drawRect(
+                            color = Color.Black,
+                            topLeft = Offset(
+                                (size.width - rectWidth3) / 1-58,
+                                (size.height - rectHeight3) / 2 + 20f
+                            ),
+                            size = Size(100f, 30f)
+                        )
+                    }
+
+                }
+            }
+        }
                 }
 }
 @Preview(showBackground = true)
