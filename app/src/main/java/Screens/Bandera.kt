@@ -17,7 +17,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    ConstraintLayout (modifier = modifier.fillMaxSize()) {
+ Column (modifier = modifier.fillMaxSize()) {
         Canvas(modifier = modifier.width(240.dp).height(290.dp)) {
             val mid = size.height / 2f
             val triangSuperior = Path().apply {
