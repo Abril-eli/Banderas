@@ -17,104 +17,17 @@ import androidx.constraintlayout.compose.ConstraintLayout
     fun BanderaScreen(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = modifier.fillMaxSize()) {
             Canvas(modifier = modifier.fillMaxSize()) {
-                drawRect(color = Color.Blue)
-                val centroX = size.width / 2
-                val centroY = size.height / 2
-                val grosorDiagonalBlanca = size.height * 0.22f
-                val grosorDiagonalBlanca2 = size.width * 0.22f
-                val grosorDiagonalRojo2 = size.width * 0.11f
-                val grosorDiagonalRojo = size.height * 0.11f
-                drawLine(
-                    Color.White,
-                    Offset(0f, 0f),
-                    Offset(size.width, size.height),
-                    grosorDiagonalBlanca
-                )
-                drawLine(
-                    Color.White,
-                    Offset(size.width, 0f),
-                    Offset(0f, size.height),
-                    grosorDiagonalBlanca
-                )
-                drawLine(
-                    Color.Red,
-                    Offset(0f, 0f),
-                    Offset(size.width, size.height),
-                    grosorDiagonalRojo
-                )
-                drawLine(
-                    Color.Red,
-                    Offset(size.width, 0f),
-                    Offset(0f, size.height),
-                    grosorDiagonalRojo
-                )
-                drawLine(Color.White, Offset(centroX, 0f),
-                Offset(centroX, size.height)
+                val apex = Offset(size.width * 0.36f, size.height / 2f)
+                drawLine(Color.White, Offset(0f, 0f), apex, size.height * 0.30f)
+                drawLine(Color.White, Offset(0f, size.height), apex, size.height * 0.30f)
+                drawLine(Color.White, apex, Offset(size.width, size.height * 0.14f), size.height * 0.30f)
+                drawLine(Color.White, apex, Offset(size.width, size.height * 0.86f), size.height * 0.30f)
 
-                )
-                drawLine(
-                    Color.White,
-                    Offset( 0f,size.height/2),
-                    Offset( size.width,size.height/2),
-                    grosorDiagonalBlanca2
-                )
-                drawLine(
-                    Color.Red,
-                    Offset( 0f,size.height/2),
-                    Offset( size.width,size.height/2),
-                    grosorDiagonalRojo2
-                )
-                drawLine(Color.White,
-                    Offset(centroX,0f),
-                Offset(centroX, size.height),
-                    grosorDiagonalBlanca2
-                )
-                drawLine(
-                    Color.Red,
-                    Offset( centroX,0f),
-                    Offset( centroX,size.height),
-                    grosorDiagonalRojo2
-                )
-                drawLine(
-                    Color.Red,
-                    Offset( 0f,centroY),
-                    Offset( size.width,centroY),
-                    grosorDiagonalRojo2
-                )
+                drawLine(Color.Green, Offset(0f, 0f), apex, size.height * 0.20f)
+                drawLine(Color.Green, Offset(0f, size.height), apex, size.height * 0.20f)
+                drawLine(Color.Green, apex, Offset(size.width, size.height * 0.14f), size.height * 0.20f)
+                drawLine(Color.Green, apex, Offset(size.width, size.height * 0.86f), size.height * 0.20f)
 
-
-
-//    @Composable
-//    fun Estrella(modifier: Modifier = Modifier,color: Color = Color.White) {
-//        Canvas(modifier = modifier) {
-//            val cx = size.width / 2
-//            val cy = size.height / 2
-//
-//            val radioExterior = minOf(size.width, size.height) / 2
-//            val radioInterior = radioExterior * 0.4f
-//
-//            val path = Path()
-//
-//            for (i in 0 until 10) {
-//                val radio = if (i % 2 == 0) radioExterior else radioInterior
-//                val angulo = Math.toRadians((i * 36.0) - 90)
-//
-//                val x = (cx + radio * kotlin.math.cos(angulo)).toFloat()
-//                val y = (cy + radio * kotlin.math.sin(angulo)).toFloat()
-//
-//                if (i == 0)
-//                    path.moveTo(x, y)
-//                else
-//                    path.lineTo(x, y)
-//            }
-//
-//            path.close()
-//            drawPath(
-//                        path = path,
-//                        color = color
-//            )
-//
-//
             }
     }
 }
