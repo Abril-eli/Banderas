@@ -1,5 +1,6 @@
 package Screens
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
@@ -13,7 +14,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
-    ConstraintLayout(modifier = modifier.fillMaxSize()) {
+    Column(modifier = modifier.fillMaxSize()) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
@@ -21,23 +22,53 @@ import androidx.constraintlayout.compose.ConstraintLayout
         ) {
             val triangulo = Path().apply {
                 moveTo(0f, 0f)
-                lineTo(size.width, 0f)
-                lineTo(size.width, size.height)
+                lineTo(size.height / 2, 0f)
+                lineTo(0f, size.height)
                 close()
             }
             val triangulo2 = Path().apply {
-                moveTo(0f, 0f)
-                lineTo(0f, size.height)
+                moveTo(size.width, 0f)
                 lineTo(size.width, size.height)
+                lineTo(0f, size.height)
                 close()
             }
             drawPath(
                 path = triangulo,
-                color = Color(0xFFCC0000),
+                color = Color.Yellow,
             )
             drawPath(
                 path = triangulo2,
-                color = Color.Black,
+                color = Color(0xFFFF8C00)
+            )
+
+            val dragon = Path().apply {
+                moveTo(size.width * 0.25f, size.height * 0.75f)
+
+                quadraticBezierTo(
+                    size.width * 0.10f, size.height * 0.50f,
+                    size.width * 0.35f, size.height * 0.35f
+                )
+
+                quadraticBezierTo(
+                    size.width * 0.55f, size.height * 0.15f,
+                    size.width * 0.70f, size.height * 0.35f
+                )
+
+                quadraticBezierTo(
+                    size.width * 0.85f, size.height * 0.55f,
+                    size.width * 0.60f, size.height * 0.70f
+                )
+
+                quadraticBezierTo(
+                    size.width * 0.45f, size.height * 0.85f,
+                    size.width * 0.25f, size.height * 0.75f
+                )
+                close()
+            }
+
+            drawPath(
+                path = dragon,
+                color = Color.White
             )
         }
         Estrella(
