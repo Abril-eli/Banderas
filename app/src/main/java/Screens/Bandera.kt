@@ -1,5 +1,6 @@
 package Screens
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,28 +15,26 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 
 @Composable
     fun BanderaScreen(modifier: Modifier = Modifier) {
     ConstraintLayout(modifier = modifier.fillMaxSize()) {
             Canvas(modifier = modifier.fillMaxSize()) {
-                var lineaguia=
-                val azul = Path().apply {
-                    moveTo(0f, 0f)
-                    lineTo(size.width, 0f)
-                    lineTo(size.width, size.height * 0.43f)
-                    lineTo(size.width * 0.36f, size.height / 2f)
-                    close()
-                }
-                drawPath(azul, Color.Blue)
-                val amarillo = Path().apply {
-                    moveTo(0f, size.height)
-                    lineTo(size.width, size.height)
-                    lineTo(size.width, size.height * 0.57f)
-                    lineTo(size.width * 0.36f, size.height / 2f)
-                    close()
-                }
-                drawPath(amarillo, Color.Yellow)
+                val (caja,caja1,) = createRefs()
+                val lineaguia=createGuidelineFromTop(0.333f)
+                val lineaguia2=createGuidelineFromTop(0.666f)
+
+                Box(modifier = Modifier.size(80.dp).background(Color(0xFF74ACDF)).
+                constrainAs(caja) {
+                    start.linkTo(parent.start)
+                    end.linkTo(parent.end)
+                    top.linkTo(parent.top)
+                    bottom.linkTo(parent.bottom)
+                    height = Dimension.fillToConstraints
+                    width = Dimension.fillToConstraints
+                    )
+
                 val apex = Offset(size.width * 0.36f, size.height / 2f)
                 drawLine(Color.White, Offset(0f, 0f), apex, size.height * 0.30f)
                 drawLine(Color.White, Offset(0f, size.height), apex, size.height * 0.30f)
